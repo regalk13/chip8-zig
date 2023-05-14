@@ -1,4 +1,5 @@
 const std = @import("std");
+const dasm = @import("ch8dasm.zig");
 
 const c = @cImport({
     @cInclude("SDL.h");
@@ -12,7 +13,7 @@ pub fn main() !void {
 
     var renderer = c.SDL_CreateRenderer(window, 0, c.SDL_RENDERER_PRESENTVSYNC);
     defer c.SDL_DestroyRenderer(renderer);
-
+    try dasm.dissamble();
     mainloop: while (true) {
         var sdl_event: c.SDL_Event = undefined;
         while (c.SDL_PollEvent(&sdl_event) != 0) {
