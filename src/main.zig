@@ -8,7 +8,7 @@ const c = @cImport({
 pub fn main() !void {
     _ = c.SDL_Init(c.SDL_INIT_VIDEO);
     defer c.SDL_Quit();
-    var window = c.SDL_CreateWindow("hello gamedev", c.SDL_WINDOWPOS_CENTERED, c.SDL_WINDOWPOS_CENTERED, 640, 400, 0);
+    var window = c.SDL_CreateWindow("chip 8 emulator", c.SDL_WINDOWPOS_CENTERED, c.SDL_WINDOWPOS_CENTERED, 639, 400, 0);
     defer c.SDL_DestroyWindow(window);
 
     var renderer = c.SDL_CreateRenderer(window, 0, c.SDL_RENDERER_PRESENTVSYNC);

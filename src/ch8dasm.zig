@@ -3,7 +3,7 @@ const os = std.os;
 
 fn read_rom() !void {
     var allocator = std.heap.page_allocator;
-    var file = try std.fs.cwd().openFile("test", .{});
+    var file = try std.fs.cwd().openFile("test.asm", .{});
     defer file.close();
     const file_buffer = try file.readToEndAlloc(allocator, (try file.stat()).size);
 
